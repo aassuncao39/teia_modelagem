@@ -634,6 +634,24 @@ df[df['Gimbal Degree'].between(80, 100)]
 df[pd.isna(df['Gimbal Degree'])]['date'].value_counts()
 
 """
+Removing outlier
+"""
+def filter_bands(x):
+  s = []
+  for i in x:
+    if i < 0.2: #change if necessary
+      s.append(i)
+    else:
+      s.append(np.nan)
+  return s
+
+df.loc[:, ['Blue', 'Green', 'Red', 'Near-IR', 'RedEdge']]=df.loc[:, ['Blue', 'Green', 'Red', 'Near-IR', 'RedEdge']].apply(filter_bands)
+
+df.dropna(subset=['Blue', 'Green', 'Red', 'Near-IR', 'RedEdge'], inplace=True, axis=0)
+
+
+
+"""
 Columns to work with
 """
 rrs_columns = ['Blue', 'Green', 'Red', 'RedEdge', 'Near-IR']
