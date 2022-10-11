@@ -1015,7 +1015,7 @@ dis_list = ('resultados_modelagem/secchi', 'resultados_modelagem/chl', 'resultad
 
 results = pd.DataFrame()
 
-for z in range(dis_list):
+for z in range(len(dis_list)):
     for file in os.listdir(dis_list[z]):
         if file == '.ipynb_checkpoints':
             pass
