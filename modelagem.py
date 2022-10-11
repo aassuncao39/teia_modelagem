@@ -688,9 +688,9 @@ corr = corr.loc[potential_independent_variables, wqp_columns]
 corr = corr[abs(corr)>0.4].dropna(how='all', axis=0)
 
 
-fig, ax = plt.subplots(figsize=(20*cm,20*cm))
+#fig, ax = plt.subplots(figsize=(20*cm,20*cm))
 
-ax = sns.heatmap(corr, annot=True, cmap='coolwarm')
+#ax = sns.heatmap(corr, annot=True, cmap='coolwarm')
 
 """
 ML Models
